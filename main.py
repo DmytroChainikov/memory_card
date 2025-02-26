@@ -1,4 +1,4 @@
-# from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication
 app = QApplication([])
 from main_window import *
 from menu_window import *
@@ -99,5 +99,24 @@ def menu_back():
     win_card.show()
 
 btn_back.clicked.connect(menu_back)
+
+def add_question():
+    q = le_question.text()
+    r = le_right_ans.text()
+    w1 = le_wrong_ans1.text()
+    w2 = le_wrong_ans2.text()
+    w3 = le_wrong_ans3.text()
+    questions.append(Question(q, r, w1, w2, w3))
+
+btn_add_question.clicked.connect(add_question)
+
+def clear():
+    le_question.clear()
+    le_right_ans.clear()
+    le_wrong_ans1.clear()
+    le_wrong_ans2.clear()
+    le_wrong_ans3.clear()
+
+btn_clear.clicked.connect(clear)
 
 app.exec_()
